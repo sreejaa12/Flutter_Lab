@@ -46,17 +46,15 @@ class _MyFormState extends State<MyForm> {
           key: _key,
           child: Column(
             children: [
-              field(Icons.person, 'Name', name, (v) =>
-                  v!.isEmpty ? 'Please enter your name' : null),
+              field(Icons.person, 'Name', name,
+                  (v) => v!.isEmpty ? 'Please enter your name' : null),
               SizedBox(height: 15),
-              field(Icons.email, 'Email', email, (v) {
-                if (v!.isEmpty) return 'Please enter your email';
-                if (v!.isEmpty) return 'Enter email';
-                return null;
-              }),
+              field(Icons.email, 'Email', email,
+                  (v) => v!.isEmpty ? 'Please enter your email' : null),
               SizedBox(height: 15),
-              field(Icons.lock, 'Password', pass, (v) =>
-                  v!.length < 6 ? 'Min 6 characters' : null, obscure: true),
+              field(Icons.lock, 'Password', pass,
+                  (v) => v!.length < 6 ? 'Min 6 characters' : null,
+                  obscure: true),
               SizedBox(height: 25),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -82,7 +80,8 @@ class _MyFormState extends State<MyForm> {
   }
 
   Widget field(IconData icon, String label, TextEditingController c,
-      String? Function(String?) validate, {bool obscure = false}) {
+      String? Function(String?) validate,
+      {bool obscure = false}) {
     return TextFormField(
       controller: c,
       obscureText: obscure,
